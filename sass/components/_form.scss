@@ -1,0 +1,101 @@
+.form {
+  h2 {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  &-group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  &-input {
+    padding: 1.5rem;
+    color: $color-black;
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    border: none;
+    background-color: rgba($color-white, 0.5);
+    // margin-bottom: 6rem;
+    width: 100%;
+    display: block;
+    transition: all 0.2s;
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid $color-primary-dark;
+      box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+      &:invalid {
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+    }
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+  &-label {
+    font-weight: 700;
+    margin: 0.7rem 0 0 2rem;
+    font-size: 1.3rem;
+    display: block;
+    transition: all 0.3s;
+  }
+  &-input:placeholder-shown + &-label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+  &_radio {
+    &-group {
+      display: inline-block;
+      width: 49%;
+      margin-left: 30px;
+
+      @include respond(phone) {
+          width: 100%;
+        }
+      // float: left;
+      &:last-child {
+        margin-bottom: 15px;
+
+        @include respond(phone) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    &-input {
+      visibility: hidden;
+    }
+    &-label {
+      cursor: pointer;
+      font-size: 16px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    &-select {
+      display: inline-block;
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      position: absolute;
+      border: 5px solid $color-primary;
+      top: -5px;
+      left: -4.5rem;
+      &::after {
+        content: "";
+        display: block;
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        background-color: $color-primary;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+    }
+    &-input:checked ~ &-label &-select::after {
+      opacity: 1;
+    }
+  }
+}

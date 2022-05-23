@@ -1,0 +1,120 @@
+.navigation {
+  //   &_body {
+  //   }
+  &_menu {
+    display: none;
+  }
+  &_button {
+    font-size: 3.9rem;
+    text-align: center;
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 7rem;
+    right: 7rem;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.2);
+
+    @include respond(tab-port) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+    @include respond(phone) {
+      top: 2.5rem;
+      right: 2.5rem;
+      height: 6rem;
+      width: 6rem;
+      font-size: 3.6rem;
+    }
+  }
+  &_background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 7.5rem;
+    right: 7.5rem;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    z-index: 1000;
+    transition: transform 0.8s;
+    
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+    @include respond(phone) {
+      top: 2.7rem;
+      right: 2.7rem;
+      height: 5.5rem;
+      width: 5.5rem;
+    }
+  }
+  //FUNCTIONALITY
+  &_menu:checked ~ &_background {
+    transform: scale(70);
+  }
+  &_menu:checked ~ &_nav {
+    // visibility: visible;
+    width: 100%;
+    opacity: 1;
+  }
+  &_nav {
+    height: 100vh;
+    width: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1500;
+    // visibility: hidden;
+    transition: all 0.7s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+  &_list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+  &_item {
+    margin: 1rem;
+  }
+  &_link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 3.2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: center;
+      color: $color-white;
+      padding: 1rem 2rem;
+      background-size: 220%;
+      // margin: 3rem;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      transition: all 0.5s;
+    }
+    &:hover {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+    }
+    span {
+      margin-right: 2rem;
+      display: inline-block;
+    }
+  }
+}
