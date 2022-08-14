@@ -22,6 +22,7 @@ Current Laptop styles
 1800px+     = Big Desktop
 
 1em=16px
+1rem=10px
 */
 @mixin respond($option) {
   @if $option == phone {
