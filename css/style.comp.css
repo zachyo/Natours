@@ -729,7 +729,8 @@ body {
   .row .col-1-of-4 {
     width: calc((100% - 3 * 6rem) / 4); }
   .row .col-2-of-3 {
-    width: calc( 2 * ((100% - 2 * 6rem) / 3) + (6rem)); }
+    width: calc(
+ 2 * ((100% - 2 * 6rem) / 3) + (6rem)); }
 
 .footer {
   font-size: 1.4rem; }
